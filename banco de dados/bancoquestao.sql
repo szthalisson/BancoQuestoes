@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09/02/2024 às 21:13
+-- Tempo de geração: 10/02/2024 às 17:10
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -59,7 +59,8 @@ CREATE TABLE `disciplina` (
 INSERT INTO `disciplina` (`id`, `nome`) VALUES
 (1, 'MATEMATICA'),
 (2, 'PORTUGUES'),
-(3, 'FILOSOFIA');
+(4, 'SOCIOLOGIA'),
+(5, 'FILOSOFIA');
 
 -- --------------------------------------------------------
 
@@ -78,8 +79,7 @@ CREATE TABLE `professor` (
 --
 
 INSERT INTO `professor` (`nome`, `senha`, `email`) VALUES
-('thais', '1234', 'thais@gmail.com'),
-('thalisson', '1234', 'thalisson@gmail.com');
+('thalisson', '1234', 'thalissons@gmail.com');
 
 --
 -- Índices para tabelas despejadas
@@ -117,7 +117,7 @@ ALTER TABLE `administrador`
 -- AUTO_INCREMENT de tabela `disciplina`
 --
 ALTER TABLE `disciplina`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,0 +1,31 @@
+@import url('header.css');
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 80px);
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.opcoes {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.opcao {
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  color: black;
+  transition: transform .2s ease;
+}
+
+.opcao:hover {
+  transform: scale(1.05);
+}

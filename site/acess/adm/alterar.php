@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - Administrador</title>
+  <title>Alteração - Administrador</title>
   <link rel="stylesheet" href="../../css/acess/home.css">
 </head>
 <body>
@@ -17,7 +17,15 @@
     </nav>
   </header>
   <main>
-    <h1>Seja bem-vindo, Administrador!</h1>
+    <h1>Alteração</h1>
+    <div class="opcoes">
+      <a href="alteracao/disc/alterar.php">
+        <div class="opcao">Disciplina</div>
+      </a>
+      <a href="alteracao/prof/alterar.php">
+        <div class="opcao">Professor</div>
+      </a>
+    </div>
   </main>
 </body>
 </html>
