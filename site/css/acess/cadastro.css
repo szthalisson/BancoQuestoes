@@ -27,9 +27,10 @@ form {
   display: flex;
   flex-direction: column;
   text-align: left;
+  gap: .2rem;
 }
 
-.input input, button {
+.input input, button, select {
   padding: 10px;
 }
 

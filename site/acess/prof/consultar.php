@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - Administrador</title>
+  <title>Consulta - Administrador</title>
   <link rel="stylesheet" href="../../css/acess/home.css">
 </head>
 <body>
@@ -17,7 +17,18 @@
     </nav>
   </header>
   <main>
-    <h1>Seja bem-vindo, <?php session_start(); echo $_SESSION['nome_professor']?>!</h1>
+    <h1>Consulta</h1>
+    <div class="opcoes">
+      <a href="consulta/assunto/consultar.php">
+        <div class="opcao">Assunto</div>
+      </a>
+      <a href="consulta/questao/consultar.php">
+        <div class="opcao">Questão</div>
+      </a>
+      <a href="consulta/prof/consultar.php">
+        <div class="opcao">Prova</div>
+      </a>
+    </div>
   </main>
 </body>
 </html>

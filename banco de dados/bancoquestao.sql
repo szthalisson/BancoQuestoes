@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10/02/2024 às 17:10
+-- Tempo de geração: 11/02/2024 às 17:19
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -40,6 +40,28 @@ CREATE TABLE `administrador` (
 
 INSERT INTO `administrador` (`id`, `user`, `senha`, `email`) VALUES
 (1, 'admin', '1234', 'admin@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `assunto`
+--
+
+CREATE TABLE `assunto` (
+  `disciplina` varchar(60) NOT NULL,
+  `nome` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `assunto`
+--
+
+INSERT INTO `assunto` (`disciplina`, `nome`) VALUES
+('MATEMATICA', 'Equação afim'),
+('MATEMATICA', 'Geometria'),
+('PORTUGUES', 'Gramatica'),
+('MATEMATICA', 'Trigonometria'),
+('PORTUGUES', 'Verbos');
 
 -- --------------------------------------------------------
 
@@ -81,6 +103,27 @@ CREATE TABLE `professor` (
 INSERT INTO `professor` (`nome`, `senha`, `email`) VALUES
 ('thalisson', '1234', 'thalissons@gmail.com');
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `questao`
+--
+
+CREATE TABLE `questao` (
+  `disciplina` varchar(60) NOT NULL,
+  `assunto` varchar(60) NOT NULL,
+  `enunciado` varchar(120) NOT NULL,
+  `resposta` varchar(120) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `questao`
+--
+
+INSERT INTO `questao` (`disciplina`, `assunto`, `enunciado`, `resposta`) VALUES
+('PORTUGUES', 'Verbos', 'A palavra \"nadar\" é um verbo?', 'Sim!'),
+('MATEMATICA', 'Trigonometria', 'Qual nome do único triângulo que possui um ângulo de 90°?', 'Triângulo retângulo');
+
 --
 -- Índices para tabelas despejadas
 --
@@ -90,6 +133,12 @@ INSERT INTO `professor` (`nome`, `senha`, `email`) VALUES
 --
 ALTER TABLE `administrador`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `assunto`
+--
+ALTER TABLE `assunto`
+  ADD PRIMARY KEY (`nome`);
 
 --
 -- Índices de tabela `disciplina`
@@ -102,6 +151,12 @@ ALTER TABLE `disciplina`
 --
 ALTER TABLE `professor`
   ADD PRIMARY KEY (`email`);
+
+--
+-- Índices de tabela `questao`
+--
+ALTER TABLE `questao`
+  ADD PRIMARY KEY (`enunciado`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
