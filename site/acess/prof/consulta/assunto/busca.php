@@ -34,7 +34,7 @@
     <table border="1px" class='lista'>
       <thead>
         <th>DISCIPLINA</th>
-        <th>NOME</th>
+        <th>ASSUNTO</th>
       </thead>
       <tbody>
         <?php

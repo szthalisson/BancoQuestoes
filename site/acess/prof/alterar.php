@@ -19,13 +19,13 @@
   <main>
     <h1>Alteração</h1>
     <div class="opcoes">
-      <a href="consulta/disc/consultar.php">
+      <a href="alteracao/assunto/alterar.php">
         <div class="opcao">Assunto</div>
       </a>
-      <a href="consulta/prof/consultar.php">
+      <a href="alteracao/questao/alterar.php">
         <div class="opcao">Questão</div>
       </a>
-      <a href="consulta/prof/consultar.php">
+      <a href="assunto/prof/assuntor.php">
         <div class="opcao">Prova</div>
       </a>
     </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11/02/2024 às 17:19
+-- Tempo de geração: 12/02/2024 às 15:56
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -57,9 +57,11 @@ CREATE TABLE `assunto` (
 --
 
 INSERT INTO `assunto` (`disciplina`, `nome`) VALUES
-('MATEMATICA', 'Equação afim'),
-('MATEMATICA', 'Geometria'),
+('BIOLOGIA', 'Distribuição genética'),
+('MATEMATICA', 'Função afim'),
 ('PORTUGUES', 'Gramatica'),
+('BIOLOGIA', 'Lei de Mendel'),
+('FILOSOFIA', 'Questionamentos'),
 ('MATEMATICA', 'Trigonometria'),
 ('PORTUGUES', 'Verbos');
 
@@ -79,10 +81,11 @@ CREATE TABLE `disciplina` (
 --
 
 INSERT INTO `disciplina` (`id`, `nome`) VALUES
-(1, 'MATEMATICA'),
 (2, 'PORTUGUES'),
-(4, 'SOCIOLOGIA'),
-(5, 'FILOSOFIA');
+(5, 'FILOSOFIA'),
+(6, 'MATEMATICA'),
+(7, 'BIOLOGIA'),
+(8, 'FISICA');
 
 -- --------------------------------------------------------
 
@@ -101,6 +104,7 @@ CREATE TABLE `professor` (
 --
 
 INSERT INTO `professor` (`nome`, `senha`, `email`) VALUES
+('marcelle', 'ma502187', 'marcelle@gmail.com'),
 ('thalisson', '1234', 'thalissons@gmail.com');
 
 -- --------------------------------------------------------
@@ -121,7 +125,8 @@ CREATE TABLE `questao` (
 --
 
 INSERT INTO `questao` (`disciplina`, `assunto`, `enunciado`, `resposta`) VALUES
-('PORTUGUES', 'Verbos', 'A palavra \"nadar\" é um verbo?', 'Sim!'),
+('MATEMATICA', 'Trigonometria', 'Fórmula para descobrir o valor da hipotenusa?', 'hipotenusa é igual a raiz quadrada da soma dos catetos ao quadrado'),
+('FILOSOFIA', 'Questionamentos', 'O thalisson ama a marcelle?', 'sim, ama muito'),
 ('MATEMATICA', 'Trigonometria', 'Qual nome do único triângulo que possui um ângulo de 90°?', 'Triângulo retângulo');
 
 --
@@ -172,7 +177,7 @@ ALTER TABLE `administrador`
 -- AUTO_INCREMENT de tabela `disciplina`
 --
 ALTER TABLE `disciplina`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
