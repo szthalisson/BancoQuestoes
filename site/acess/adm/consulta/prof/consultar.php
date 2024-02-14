@@ -29,24 +29,26 @@
       <input type="text" name="nome" placeholder="Nome do professor" required>
       <button type="submit">Buscar</button>
     </form>
-    <table border="1px" class='lista'>
-      <thead>
-        <th>NOME</th>
-        <th>SENHA</th>
-        <th>EMAIL</th>
-      </thead>
-      <tbody>
-        <?php
-          while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>
-              <td>{$row['nome']}</td>
-              <td>{$row['senha']}</td>
-              <td>{$row['email']}</td>
-            </tr>";
-          }
-        ?>
-      </tbody>
-    </table>
+    <div class="container">
+      <table border="1px" class='lista'>
+        <thead>
+          <th>NOME</th>
+          <th>SENHA</th>
+          <th>EMAIL</th>
+        </thead>
+        <tbody>
+          <?php
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo "<tr>
+                <td>{$row['nome']}</td>
+                <td>{$row['senha']}</td>
+                <td>{$row['email']}</td>
+              </tr>";
+            }
+          ?>
+        </tbody>
+      </table>
+    </div>
   </main>
 </body>
 </html>

@@ -25,7 +25,7 @@
       <a href="consulta/questao/consultar.php">
         <div class="opcao">Questão</div>
       </a>
-      <a href="consulta/prof/consultar.php">
+      <a href="consulta/prova/consultar.php">
         <div class="opcao">Prova</div>
       </a>
     </div>

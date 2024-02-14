@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12/02/2024 às 15:56
+-- Tempo de geração: 14/02/2024 às 18:25
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -57,10 +57,16 @@ CREATE TABLE `assunto` (
 --
 
 INSERT INTO `assunto` (`disciplina`, `nome`) VALUES
+('ARTES', 'arte moderna'),
+('HISTóRIA', 'Brasil Colonial'),
 ('BIOLOGIA', 'Distribuição genética'),
+('EDUCAçãO FíSICA', 'Esportes coletivos'),
 ('MATEMATICA', 'Função afim'),
 ('PORTUGUES', 'Gramatica'),
+('HISTóRIA', 'Grécia'),
 ('BIOLOGIA', 'Lei de Mendel'),
+('HISTóRIA', 'Mesopotâmia'),
+('HISTóRIA', 'Pré-história'),
 ('FILOSOFIA', 'Questionamentos'),
 ('MATEMATICA', 'Trigonometria'),
 ('PORTUGUES', 'Verbos');
@@ -85,7 +91,14 @@ INSERT INTO `disciplina` (`id`, `nome`) VALUES
 (5, 'FILOSOFIA'),
 (6, 'MATEMATICA'),
 (7, 'BIOLOGIA'),
-(8, 'FISICA');
+(8, 'FISICA'),
+(9, 'EDUCAçãO FíSICA'),
+(10, 'ARTES'),
+(11, 'SOCIOLOGIA'),
+(12, 'HISTóRIA'),
+(13, 'GEOGRAFIA'),
+(14, 'QUíMICA'),
+(15, 'PORTUGUêS PARA AVALIAçõES EXTERNAS');
 
 -- --------------------------------------------------------
 
@@ -110,6 +123,30 @@ INSERT INTO `professor` (`nome`, `senha`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `prova`
+--
+
+CREATE TABLE `prova` (
+  `id` int(11) NOT NULL,
+  `disciplina` varchar(60) NOT NULL,
+  `assunto` varchar(60) NOT NULL,
+  `questoes` varchar(120) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `prova`
+--
+
+INSERT INTO `prova` (`id`, `disciplina`, `assunto`, `questoes`) VALUES
+(10, 'MATEMATICA', 'Trigonometria', 'Fórmula para descobrir o valor da hipotenusa?<br>Qual nome do único triângulo que possui um ângulo de 90°?<br>'),
+(11, 'FILOSOFIA', 'Questionamentos', 'O thalisson ama a marcelle?<br>'),
+(12, 'PORTUGUES', 'Gramatica', 'A palavra \"nadar\" é um verbo?<br>'),
+(13, 'MATEMATICA', 'Trigonometria', 'Fórmula para descobrir o valor da hipotenusa?<br>'),
+(14, 'MATEMATICA', 'Trigonometria', 'Qual nome do único triângulo que possui um ângulo de 90°?<br>');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `questao`
 --
 
@@ -125,6 +162,7 @@ CREATE TABLE `questao` (
 --
 
 INSERT INTO `questao` (`disciplina`, `assunto`, `enunciado`, `resposta`) VALUES
+('PORTUGUES', 'Gramatica', 'A palavra \"nadar\" é um verbo?', 'Sim!'),
 ('MATEMATICA', 'Trigonometria', 'Fórmula para descobrir o valor da hipotenusa?', 'hipotenusa é igual a raiz quadrada da soma dos catetos ao quadrado'),
 ('FILOSOFIA', 'Questionamentos', 'O thalisson ama a marcelle?', 'sim, ama muito'),
 ('MATEMATICA', 'Trigonometria', 'Qual nome do único triângulo que possui um ângulo de 90°?', 'Triângulo retângulo');
@@ -158,6 +196,12 @@ ALTER TABLE `professor`
   ADD PRIMARY KEY (`email`);
 
 --
+-- Índices de tabela `prova`
+--
+ALTER TABLE `prova`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices de tabela `questao`
 --
 ALTER TABLE `questao`
@@ -177,7 +221,13 @@ ALTER TABLE `administrador`
 -- AUTO_INCREMENT de tabela `disciplina`
 --
 ALTER TABLE `disciplina`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de tabela `prova`
+--
+ALTER TABLE `prova`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

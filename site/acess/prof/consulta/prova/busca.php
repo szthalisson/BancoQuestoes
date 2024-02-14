@@ -7,10 +7,13 @@
   <link rel="stylesheet" href="../../../../css/acess/consulta.css">
   <?php
     require "../../../../conexao.php";
-    session_start();
 
-    $sql = "SELECT * FROM assunto";
+    $nome = $_POST['nome'];
+    $assunto = $_POST['assunto'];
+
+    $sql = "SELECT * FROM prova WHERE disciplina LIKE '$nome%' AND assunto LIKE '$assunto%'";
     $result = mysqli_query($conn, $sql);
+    $rows = mysqli_num_rows($result);
   ?>
 </head>
 <body>
@@ -25,8 +28,9 @@
   </header>
   <main>
     <h1>Consulta</h1>
-    <form action="busca.php" method="post" class="busca">
+    <form action="busca.php" method="post" class="busca" style="display: flex; flex-direction: column; gap: 10px;">
       <input type="text" name="nome" placeholder="Nome da disciplina" required>
+      <input type="text" name="assunto" placeholder="Nome do Assunto" required>
       <button type="submit">Buscar</button>
     </form>
     <div class="container">
@@ -34,19 +38,31 @@
         <thead>
           <th>DISCIPLINA</th>
           <th>ASSUNTO</th>
+          <th>QUESTÕES</th>
         </thead>
         <tbody>
           <?php
-            while ($row = mysqli_fetch_assoc($result)) {
-              echo "<tr>
-                <td>{$row['disciplina']}</td>
-                <td>{$row['nome']}</td>
-              </tr>";
+            if ($rows > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>
+                  <td>{$row['disciplina']}</td>
+                  <td>{$row['assunto']}</td>
+                  <td>{$row['questoes']}</td>
+                </tr>";
+              }
+            } else {
+              echo "<script>alert('Disciplina e/ou assunto não encontrado!'); location.href = 'consultar.php'</script>";
             }
           ?>
         </tbody>
       </table>
     </div>
+    <button onclick="voltar()">Mostrar todos</button>
   </main>
+  <script>
+    function voltar() {
+      location.href = 'consultar.php';
+    }
+  </script>
 </body>
 </html>

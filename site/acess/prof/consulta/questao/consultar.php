@@ -30,26 +30,28 @@
       <input type="text" name="assunto" placeholder="Nome do Assunto" required>
       <button type="submit">Buscar</button>
     </form>
-    <table border="1px" class='lista'>
-      <thead>
-        <th>DISCIPLINA</th>
-        <th>ASSUNTO</th>
-        <th>ENUNCIADO</th>
-        <th>RESPOSTA</th>
-      </thead>
-      <tbody>
-        <?php
-          while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>
-              <td>{$row['disciplina']}</td>
-              <td>{$row['assunto']}</td>
-              <td>{$row['enunciado']}</td>
-              <td>{$row['resposta']}</td>
-            </tr>";
-          }
-        ?>
-      </tbody>
-    </table>
+    <div class="container">
+      <table border="1px" class='lista'>
+        <thead>
+          <th>DISCIPLINA</th>
+          <th>ASSUNTO</th>
+          <th>ENUNCIADO</th>
+          <th>RESPOSTA</th>
+        </thead>
+        <tbody>
+          <?php
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo "<tr>
+                <td>{$row['disciplina']}</td>
+                <td>{$row['assunto']}</td>
+                <td>{$row['enunciado']}</td>
+                <td>{$row['resposta']}</td>
+              </tr>";
+            }
+          ?>
+        </tbody>
+      </table>
+    </div>
   </main>
 </body>
 </html>

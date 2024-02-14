@@ -9,7 +9,7 @@
     require "../../../../conexao.php";
     session_start();
 
-    $sql = "SELECT * FROM assunto";
+    $sql = "SELECT * FROM prova";
     $result = mysqli_query($conn, $sql);
   ?>
 </head>
@@ -25,22 +25,27 @@
   </header>
   <main>
     <h1>Consulta</h1>
-    <form action="busca.php" method="post" class="busca">
+    <form action="busca.php" method="post" class="busca" style="display: flex; flex-direction: column; gap: 10px;">
       <input type="text" name="nome" placeholder="Nome da disciplina" required>
+      <input type="text" name="assunto" placeholder="Nome do Assunto" required>
       <button type="submit">Buscar</button>
     </form>
     <div class="container">
       <table border="1px" class='lista'>
         <thead>
+          <th>ID</th>
           <th>DISCIPLINA</th>
           <th>ASSUNTO</th>
+          <th>QUESTOES</th>
         </thead>
         <tbody>
           <?php
             while ($row = mysqli_fetch_assoc($result)) {
               echo "<tr>
+                <td>{$row['id']}</td>
                 <td>{$row['disciplina']}</td>
-                <td>{$row['nome']}</td>
+                <td>{$row['assunto']}</td>
+                <td>{$row['questoes']}</td>
               </tr>";
             }
           ?>

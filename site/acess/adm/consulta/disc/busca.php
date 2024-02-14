@@ -31,26 +31,28 @@
       <input type="text" name="nome" placeholder="Nome da disciplina" required>
       <button type="submit">Buscar</button>
     </form>
-    <table border="1px" class='lista'>
-      <thead>
-        <th>ID</th>
-        <th>NOME</th>
-      </thead>
-      <tbody>
-        <?php
-          if ($rows > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-              echo "<tr>
-                <td>{$row['id']}</td>
-                <td>{$row['nome']}</td>
-              </tr>";
+    <div class="container">
+      <table border="1px" class='lista'>
+        <thead>
+          <th>ID</th>
+          <th>NOME</th>
+        </thead>
+        <tbody>
+          <?php
+            if ($rows > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>
+                  <td>{$row['id']}</td>
+                  <td>{$row['nome']}</td>
+                </tr>";
+              }
+            } else {
+              echo "<script>alert('Disciplina não encontrada!'); location.href = 'consultar.php'</script>";
             }
-          } else {
-            echo "<script>alert('Disciplina não encontrada!'); location.href = 'consultar.php'</script>";
-          }
-        ?>
-      </tbody>
-    </table>
+          ?>
+        </tbody>
+      </table>
+    </div>
     <button onclick="voltar()">Mostrar todos</button>
   </main>
   <script>

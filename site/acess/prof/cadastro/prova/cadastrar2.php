@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consulta - Administrador</title>
-  <link rel="stylesheet" href="../../../../css/acess/consulta.css">
+  <title>Cadastro - Professor</title>
+  <link rel="stylesheet" href="../../../../css/acess/cadastro.css">
   <?php
     require "../../../../conexao.php";
     session_start();
 
-    $sql = "SELECT * FROM assunto";
+    $disciplina = $_POST['disciplina'];
+    $_SESSION['disciplina'] = $disciplina;
+
+    $sql = "SELECT DISTINCT assunto FROM questao WHERE disciplina = '$disciplina'";
     $result = mysqli_query($conn, $sql);
   ?>
 </head>
@@ -24,29 +27,20 @@
     </nav>
   </header>
   <main>
-    <h1>Consulta</h1>
-    <form action="busca.php" method="post" class="busca">
-      <input type="text" name="nome" placeholder="Nome da disciplina" required>
-      <button type="submit">Buscar</button>
-    </form>
-    <div class="container">
-      <table border="1px" class='lista'>
-        <thead>
-          <th>DISCIPLINA</th>
-          <th>ASSUNTO</th>
-        </thead>
-        <tbody>
+    <h1>Cadastro de Prova</h1>
+    <form action="cadastrar3.php" method="POST">
+      <div class="input">
+        <span>Assunto</span>
+        <select name="assunto">
           <?php
             while ($row = mysqli_fetch_assoc($result)) {
-              echo "<tr>
-                <td>{$row['disciplina']}</td>
-                <td>{$row['nome']}</td>
-              </tr>";
+              echo "<option value='{$row['assunto']}'>{$row['assunto']}</option>";
             }
           ?>
-        </tbody>
-      </table>
-    </div>
+        </select>
+      </div>
+      <button class='button'>Prosseguir</button>
+    </form>
   </main>
 </body>
 </html>

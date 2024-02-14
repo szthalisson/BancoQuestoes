@@ -31,28 +31,30 @@
       <input type="text" name="nome" placeholder="Nome do professor" required>
       <button type="submit">Buscar</button>
     </form>
-    <table border="1px" class='lista'>
-      <thead>
-        <th>NOME</th>
-        <th>SENHA</th>
-        <th>EMAIL</th>
-      </thead>
-      <tbody>
-        <?php
-          if ($rows > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-              echo "<tr>
-                <td>{$row['nome']}</td>
-                <td>{$row['senha']}</td>
-                <td>{$row['email']}</td>
-              </tr>";
+    <div class="container">
+      <table border="1px" class='lista'>
+        <thead>
+          <th>NOME</th>
+          <th>SENHA</th>
+          <th>EMAIL</th>
+        </thead>
+        <tbody>
+          <?php
+            if ($rows > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>
+                  <td>{$row['nome']}</td>
+                  <td>{$row['senha']}</td>
+                  <td>{$row['email']}</td>
+                </tr>";
+              }
+            } else {
+              echo "<script>alert('Professor não encontrado!'); location.href = 'consultar.php'</script>";
             }
-          } else {
-            echo "<script>alert('Professor não encontrado!'); location.href = 'consultar.php'</script>";
-          }
-        ?>
-      </tbody>
-    </table>
+          ?>
+        </tbody>
+      </table>
+    </div>
     <button onclick="voltar()">Mostrar todos</button>
   </main>
   <script>

@@ -25,7 +25,7 @@
       <a href="cadastro/questao/cadastrar.php">
         <div class="opcao">Questão</div>
       </a>
-      <a href="cadastro/prof/cadastrar.php">
+      <a href="cadastro/prova/cadastrar.php">
         <div class="opcao">Prova</div>
       </a>
     </div>

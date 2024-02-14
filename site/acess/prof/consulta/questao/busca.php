@@ -33,30 +33,32 @@
       <input type="text" name="assunto" placeholder="Nome do Assunto" required>
       <button type="submit">Buscar</button>
     </form>
-    <table border="1px" class='lista'>
-      <thead>
-        <th>DISCIPLINA</th>
-        <th>ASSUNTO</th>
-        <th>ENUNCIADO</th>
-        <th>RESPOSTA</th>
-      </thead>
-      <tbody>
-        <?php
-          if ($rows > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-              echo "<tr>
-                <td>{$row['disciplina']}</td>
-                <td>{$row['assunto']}</td>
-                <td>{$row['enunciado']}</td>
-                <td>{$row['resposta']}</td>
-              </tr>";
+    <div class="container">
+      <table border="1px" class='lista'>
+        <thead>
+          <th>DISCIPLINA</th>
+          <th>ASSUNTO</th>
+          <th>ENUNCIADO</th>
+          <th>RESPOSTA</th>
+        </thead>
+        <tbody>
+          <?php
+            if ($rows > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>
+                  <td>{$row['disciplina']}</td>
+                  <td>{$row['assunto']}</td>
+                  <td>{$row['enunciado']}</td>
+                  <td>{$row['resposta']}</td>
+                </tr>";
+              }
+            } else {
+              echo "<script>alert('Disciplina e/ou assunto não encontrado!'); location.href = 'consultar.php'</script>";
             }
-          } else {
-            echo "<script>alert('Disciplina e/ou assunto não encontrado!'); location.href = 'consultar.php'</script>";
-          }
-        ?>
-      </tbody>
-    </table>
+          ?>
+        </tbody>
+      </table>
+    </div>
     <button onclick="voltar()">Mostrar todos</button>
   </main>
   <script>
