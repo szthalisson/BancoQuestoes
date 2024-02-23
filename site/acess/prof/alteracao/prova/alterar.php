@@ -7,13 +7,10 @@
   <link rel="stylesheet" href="../../../../css/acess/consulta.css">
   <?php
     require "../../../../conexao.php";
+    session_start();
 
-    $nome = $_POST['nome'];
-    $assunto = $_POST['assunto'];
-
-    $sql = "SELECT * FROM questao WHERE disciplina LIKE '$nome%' AND assunto LIKE '$assunto%'";
+    $sql = "SELECT * FROM prova";
     $result = mysqli_query($conn, $sql);
-    $rows = mysqli_num_rows($result);
   ?>
 </head>
 <body>
@@ -38,57 +35,48 @@
         <table border="1px" class='lista'>
           <thead>
             <th>SEL</th>
+            <th>ID</th>
             <th>DISCIPLINA</th>
             <th>ASSUNTO</th>
-            <th>ENUNCIADO</th>
-            <th>RESPOSTA</th>
+            <th>QUESTÕES</th>
           </thead>
           <tbody>
             <?php
-              if ($rows > 0) {
-                $c = 0;
-                while ($row = mysqli_fetch_assoc($result)) {
-                  if ($c == 0) {
-                    echo "<tr>
-                      <td><input type='radio' value='{$row['enunciado']}' name='disc' checked></td>
-                      <td>{$row['disciplina']}</td>
-                      <td>{$row['assunto']}</td>
-                      <td>{$row['enunciado']}</td>
-                      <td>{$row['resposta']}</td>
-                    </tr>";
-                    $c = 1;
-                  } else {
-                    echo "<tr>
-                      <td><input type='radio' value='{$row['enunciado']}' name='disc'></td>
-                      <td>{$row['disciplina']}</td>
-                      <td>{$row['assunto']}</td>
-                      <td>{$row['enunciado']}</td>
-                      <td>{$row['resposta']}</td>
-                    </tr>";
-                  }
+              $c = 0;
+              while ($row = mysqli_fetch_assoc($result)) {
+                if ($c == 0) {
+                  echo "<tr>
+                    <td><input type='radio' value='{$row['id']}' name='disc' checked></td>
+                    <td>{$row['id']}</td>
+                    <td>{$row['disciplina']}</td>
+                    <td>{$row['assunto']}</td>
+                    <td>{$row['questoes']}</td>
+                  </tr>";
+                  $c = 1;
+                } else {
+                  echo "<tr>
+                    <td><input type='radio' value='{$row['id']}' name='disc'></td>
+                    <td>{$row['id']}</td>
+                    <td>{$row['disciplina']}</td>
+                    <td>{$row['assunto']}</td>
+                    <td>{$row['questoes']}</td>
+                  </tr>";
                 }
-              } else {
-                echo "<script>alert('Disciplina não encontrada!'); location.href = 'alterar.php'</script>";
               }
             ?>
           </tbody>
         </table>
       </div>
       <div class="radios">
-          <input type="radio" name="alt" value='editar' checked onclick="mudar()">
-          <span>Editar</span>
-          <input type="radio" name="alt" value='apagar' onclick='mudar()'>
-          <span>Apagar</span>
+        <input type="radio" name="alt" value='editar' checked onclick="mudar()">
+        <span>Editar</span>
+        <input type="radio" name="alt" value='apagar' onclick='mudar()'>
+        <span>Apagar</span>
       </div>
       <button type='submit' id='btn'>Editar</button>
     </form>
-    <button onclick="voltar()">Mostrar todos</button>
   </main>
   <script>
-    function voltar() {
-      location.href = 'alterar.php';
-    }
-
     let btn = document.getElementById('btn');
 
     function mudar() {

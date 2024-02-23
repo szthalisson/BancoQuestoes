@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14/02/2024 às 18:25
+-- Tempo de geração: 23/02/2024 às 21:48
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -138,7 +138,7 @@ CREATE TABLE `prova` (
 --
 
 INSERT INTO `prova` (`id`, `disciplina`, `assunto`, `questoes`) VALUES
-(10, 'MATEMATICA', 'Trigonometria', 'Fórmula para descobrir o valor da hipotenusa?<br>Qual nome do único triângulo que possui um ângulo de 90°?<br>'),
+(10, 'EDUCAçãO FíSICA', 'Esportes coletivos', ''),
 (11, 'FILOSOFIA', 'Questionamentos', 'O thalisson ama a marcelle?<br>'),
 (12, 'PORTUGUES', 'Gramatica', 'A palavra \"nadar\" é um verbo?<br>'),
 (13, 'MATEMATICA', 'Trigonometria', 'Fórmula para descobrir o valor da hipotenusa?<br>'),
@@ -164,8 +164,7 @@ CREATE TABLE `questao` (
 INSERT INTO `questao` (`disciplina`, `assunto`, `enunciado`, `resposta`) VALUES
 ('PORTUGUES', 'Gramatica', 'A palavra \"nadar\" é um verbo?', 'Sim!'),
 ('MATEMATICA', 'Trigonometria', 'Fórmula para descobrir o valor da hipotenusa?', 'hipotenusa é igual a raiz quadrada da soma dos catetos ao quadrado'),
-('FILOSOFIA', 'Questionamentos', 'O thalisson ama a marcelle?', 'sim, ama muito'),
-('MATEMATICA', 'Trigonometria', 'Qual nome do único triângulo que possui um ângulo de 90°?', 'Triângulo retângulo');
+('EDUCAçãO FíSICA', 'Esportes coletivos', 'Vôlei é considerado um esporte de contato?', 'Não!');
 
 --
 -- Índices para tabelas despejadas

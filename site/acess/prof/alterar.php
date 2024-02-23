@@ -25,7 +25,7 @@
       <a href="alteracao/questao/alterar.php">
         <div class="opcao">Questão</div>
       </a>
-      <a href="assunto/prof/assuntor.php">
+      <a href="alteracao/prova/alterar.php">
         <div class="opcao">Prova</div>
       </a>
     </div>

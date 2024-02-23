@@ -11,7 +11,7 @@
     $nome = $_POST['nome'];
     $assunto = $_POST['assunto'];
 
-    $sql = "SELECT * FROM questao WHERE disciplina LIKE '$nome%' AND assunto LIKE '$assunto%'";
+    $sql = "SELECT * FROM PROVA WHERE disciplina LIKE '$nome%' AND assunto LIKE '$assunto%'";
     $result = mysqli_query($conn, $sql);
     $rows = mysqli_num_rows($result);
   ?>
@@ -38,10 +38,10 @@
         <table border="1px" class='lista'>
           <thead>
             <th>SEL</th>
+            <th>ID</th>
             <th>DISCIPLINA</th>
             <th>ASSUNTO</th>
-            <th>ENUNCIADO</th>
-            <th>RESPOSTA</th>
+            <th>QUESTÕES</th>
           </thead>
           <tbody>
             <?php
@@ -50,25 +50,25 @@
                 while ($row = mysqli_fetch_assoc($result)) {
                   if ($c == 0) {
                     echo "<tr>
-                      <td><input type='radio' value='{$row['enunciado']}' name='disc' checked></td>
+                      <td><input type='radio' value='{$row['id']}' name='disc' checked></td>
+                      <td>{$row['id']}</td>
                       <td>{$row['disciplina']}</td>
                       <td>{$row['assunto']}</td>
-                      <td>{$row['enunciado']}</td>
-                      <td>{$row['resposta']}</td>
+                      <td>{$row['questoes']}</td>
                     </tr>";
                     $c = 1;
                   } else {
                     echo "<tr>
-                      <td><input type='radio' value='{$row['enunciado']}' name='disc'></td>
+                      <td><input type='radio' value='{$row['id']}' name='disc'></td>
+                      <td>{$row['id']}</td>
                       <td>{$row['disciplina']}</td>
                       <td>{$row['assunto']}</td>
-                      <td>{$row['enunciado']}</td>
-                      <td>{$row['resposta']}</td>
+                      <td>{$row['questoes']}</td>
                     </tr>";
                   }
                 }
               } else {
-                echo "<script>alert('Disciplina não encontrada!'); location.href = 'alterar.php'</script>";
+                echo "<script>alert('Prova não encontrada!'); location.href = 'alterar.php'</script>";
               }
             ?>
           </tbody>
