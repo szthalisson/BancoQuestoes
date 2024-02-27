@@ -4,12 +4,12 @@
 
   $nome = $_SESSION["disc"];
 
-  $sql = "DELETE FROM questao WHERE enunciado = '$nome'";
+  $sql = "DELETE FROM prova WHERE id = '$nome'";
   $result = mysqli_query($conn,$sql);
 
   if ($result) {
-    echo "<script>alert('Questão removida com sucesso!'); location.href = '../../../alterar.php'</script>";
+    echo "<script>alert('Prova removida com sucesso!'); location.href = '../../../alterar.php'</script>";
   } else {
-    echo "<script>alert('Questão não removida!'); location.href = '../../../alterar.php'</script>";
+    echo "<script>alert('Prova não removida!'); location.href = '../../../alterar.php'</script>";
   }
 ?>

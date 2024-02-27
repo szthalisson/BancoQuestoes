@@ -4,7 +4,7 @@
 
   $disciplina = $_SESSION['disciplina'];
   $assunto = $_SESSION['assunto'];
-  $questoes = $_POST['questoes'];
+  $questoes = $_POST['questao'];
   $enunciados = "";
 
   foreach ($questoes as $q) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/02/2024 às 21:48
+-- Tempo de geração: 27/02/2024 às 22:03
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -138,11 +138,10 @@ CREATE TABLE `prova` (
 --
 
 INSERT INTO `prova` (`id`, `disciplina`, `assunto`, `questoes`) VALUES
-(10, 'EDUCAçãO FíSICA', 'Esportes coletivos', ''),
-(11, 'FILOSOFIA', 'Questionamentos', 'O thalisson ama a marcelle?<br>'),
 (12, 'PORTUGUES', 'Gramatica', 'A palavra \"nadar\" é um verbo?<br>'),
 (13, 'MATEMATICA', 'Trigonometria', 'Fórmula para descobrir o valor da hipotenusa?<br>'),
-(14, 'MATEMATICA', 'Trigonometria', 'Qual nome do único triângulo que possui um ângulo de 90°?<br>');
+(14, 'MATEMATICA', 'Trigonometria', 'Qual nome do único triângulo que possui um ângulo de 90°?<br>'),
+(15, 'ARTES', 'arte moderna', 'corocotoca?<br>');
 
 -- --------------------------------------------------------
 
@@ -163,6 +162,7 @@ CREATE TABLE `questao` (
 
 INSERT INTO `questao` (`disciplina`, `assunto`, `enunciado`, `resposta`) VALUES
 ('PORTUGUES', 'Gramatica', 'A palavra \"nadar\" é um verbo?', 'Sim!'),
+('ARTES', 'arte moderna', 'corocotoca?', 'cuida'),
 ('MATEMATICA', 'Trigonometria', 'Fórmula para descobrir o valor da hipotenusa?', 'hipotenusa é igual a raiz quadrada da soma dos catetos ao quadrado'),
 ('EDUCAçãO FíSICA', 'Esportes coletivos', 'Vôlei é considerado um esporte de contato?', 'Não!');
 
@@ -226,7 +226,7 @@ ALTER TABLE `disciplina`
 -- AUTO_INCREMENT de tabela `prova`
 --
 ALTER TABLE `prova`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

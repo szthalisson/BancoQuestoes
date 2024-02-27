@@ -9,7 +9,7 @@
     require "../../../../../conexao.php";
     session_start();
 
-    $sql = "SELECT * FROM questao WHERE enunciado = '{$_SESSION['disc']}'";
+    $sql = "SELECT * FROM prova WHERE id = '{$_SESSION['disc']}'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
   ?>
@@ -25,9 +25,9 @@
     </nav>
   </header>
   <main>
-    <h1>Remoção de questão</h1>
+    <h1>Remoção de prova</h1>
     <form action="remover.php" method="POST">
-      <p>Deseja realmente apagar a questão: <?php echo $row['enunciado']; ?><br>na disciplina: <?php echo $row['disciplina']; ?><br>do assunto: <?php echo $row['assunto']; ?>?</p>
+      <p>Deseja realmente apagar a prova: <?php echo $row['id']; ?><br>na disciplina: <?php echo $row['disciplina']; ?><br>do assunto: <?php echo $row['assunto']; ?><br>com as seguintes questões:<br><?php echo $row['questoes']?>?</p>
       <button class='button'>Apagar</button>
     </form>
     <button onclick="cancelar()">Cancelar</button>
